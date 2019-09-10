@@ -41,8 +41,7 @@ const siteContent = {
 const logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-//region nav
-
+//#region nav
 const nav = document.getElementsByTagName('nav');
 let nav_links = nav[0].querySelectorAll('a');
 for (e = 0; e < nav_links.length; e++) {
@@ -58,10 +57,10 @@ gallery.setAttribute('href', '#');
 nav[0].prepend(home);
 nav[0].appendChild(gallery);
 nav_links = nav[0].querySelectorAll('a');
-nav_links.forEach((a) => a.style.color = 'lightgrey');
+nav_links.forEach((a) => a.style.color = 'green');
+//#endregion nav
 
-//cta
-
+//#region cta
 const cta = document.getElementsByClassName('cta')[0];
 const cta_text = cta.getElementsByClassName('cta-text')[0];
 const cta_h1 = cta_text.querySelector('h1');
@@ -71,9 +70,9 @@ const cta_image = cta.querySelector('img');
 cta_h1.innerHTML = siteContent["cta"]["h1"].split(' ').join('<br/> ');
 cta_button.textContent = siteContent["cta"]["button"];
 cta_image.setAttribute('src', siteContent["cta"]["img-src"]);
+//#endregion cta
 
-//main content
-
+//#region main-content
 const main_content = document.getElementsByClassName('main-content')[0];
 const top_content = main_content.querySelector('div.top-content');
 const middle_image = main_content.querySelector('img.middle-img');
@@ -94,10 +93,11 @@ divs[1].querySelector('h4').textContent = siteContent["main-content"]["product-h
 divs[1].querySelector('p').textContent = siteContent["main-content"]["product-content"];
 divs[2].querySelector('h4').textContent = siteContent["main-content"]["vision-h4"];
 divs[2].querySelector('p').textContent = siteContent["main-content"]["vision-content"];
+
 divs = undefined;
+//#endregion main-content
 
-
-//region contact
+//#region contact
 const contact = document.getElementsByClassName('contact')[0];
 contact.querySelector('h4').textContent = siteContent["contact"]["contact-h4"];
 const paragraphs = contact.querySelectorAll('p');
@@ -108,12 +108,23 @@ const address_multiline = address.slice(0, last_space) + "<br/>" + address.slice
 paragraphs[0].innerHTML = address_multiline;
 paragraphs[1].textContent = siteContent["contact"]["phone"];
 paragraphs[2].textContent = siteContent["contact"]["email"];
+//#endregion contact
 
-//region footer
-
+//#region footer
 const footer = document.getElementsByTagName('footer')[0];
 footer.querySelector('p').textContent = siteContent["footer"]["copyright"];
+//#endregion footer
 
-cta_h1.style.color = 'lightblue';
-document.querySelectorAll('h4').forEach((e) => e.style.color = 'red');
+//#region stretch
+nav_links.forEach((a) => a.style.fontWeight = 'bold');
+
+cta_h1.style.color = 'DodgerBlue';
+document.querySelectorAll('h4').forEach((e) => e.style.color = 'DodgerBlue');
 cta_button.style.fontWeight = 'bold';
+
+paragraphs[0].innerHTML = `<a href='https://www.google.com/maps/search/${address.replace(/\ /g,"+")}'>${address_multiline}</a>`
+paragraphs[1].innerHTML = `<a href='tel:${siteContent["contact"]["phone"].replace(/\D/g, "")}'>${paragraphs[1].textContent}</a>`;
+paragraphs[2].innerHTML = `<a href='mailto:${siteContent["contact"]["email"]}'>${paragraphs[2].textContent}</a>`;
+
+footer.querySelector('p').innerHTML = footer.querySelector('p').innerHTML.replace('Copyright', '&copy;');
+//#endregion stretch
