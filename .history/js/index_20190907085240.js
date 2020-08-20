@@ -38,45 +38,44 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
-const logo = document.getElementById("logo-img");
+let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-//region nav
+//nav
 
-const nav = document.getElementsByTagName('nav');
+const nav = document.getElementsByTagName('a');
 let nav_links = nav[0].querySelectorAll('a');
-for (e = 0; e < nav_links.length; e++) {
-  let t = e+1;
-  nav_links[e].text = siteContent["nav"]["nav-item-"+t];
+for ( n = 0; n < nav_links.length; n++) {
+  let count = n+1;
+  nav_links[n].text = siteContent["nav"]["nav-item"+count];
 }
 const home = document.createElement('a');
 const gallery = document.createElement('a');
 home.textContent = "Home";
 home.setAttribute('href', '#');
 gallery.textContent = "Gallery";
-gallery.setAttribute('href', '#');
+gallery.setAttribute('href','#');
 nav[0].prepend(home);
 nav[0].appendChild(gallery);
 nav_links = nav[0].querySelectorAll('a');
-nav_links.forEach((a) => a.style.color = 'lightgrey');
+nav_links.forEach((a) => a.style.color = 'green');
 
 //cta
 
 const cta = document.getElementsByClassName('cta')[0];
 const cta_text = cta.getElementsByClassName('cta-text')[0];
 const cta_h1 = cta_text.querySelector('h1');
-const cta_button = cta_text.querySelector('button');
+const cta_buttton = cta.text.querySelector('button');
 const cta_image = cta.querySelector('img');
-
-cta_h1.innerHTML = siteContent["cta"]["h1"].split(' ').join('<br/> ');
-cta_button.textContent = siteContent["cta"]["button"];
+cta_h1.innerHTML =siteContent["cta"]["h1"].split(' ').join('<br/>');
+cta_buttton.textContent = siteContent["cta"]["img-src"];
 cta_image.setAttribute('src', siteContent["cta"]["img-src"]);
 
 //main content
 
-const main_content = document.getElementsByClassName('main-content')[0];
+const main_content = document.getElementsByClassName('main_content')[0];
 const top_content = main_content.querySelector('div.top-content');
-const middle_image = main_content.querySelector('img.middle-img');
+const middle_image = main_content.querySelector('img.middle_img');
 const bottom_content = main_content.querySelector('div.bottom-content');
 
 let divs = top_content.querySelectorAll('div.text-content');
@@ -84,26 +83,25 @@ divs[0].querySelector('h4').textContent = siteContent["main-content"]["features-
 divs[0].querySelector('p').textContent = siteContent["main-content"]["features-content"];
 divs[1].querySelector('h4').textContent = siteContent["main-content"]["about-h4"];
 divs[1].querySelector('p').textContent = siteContent["main-content"]["about-content"];
-
 middle_image.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
 
 divs = bottom_content.querySelectorAll('div.text-content');
 divs[0].querySelector('h4').textContent = siteContent["main-content"]["services-h4"];
-divs[0].querySelector('p').textContent = siteContent["main-content"]["services-content"];
+divs[0].querySelector('p').textContent = siteContent["main-content"]["service-content"];
 divs[1].querySelector('h4').textContent = siteContent["main-content"]["product-h4"];
 divs[1].querySelector('p').textContent = siteContent["main-content"]["product-content"];
 divs[2].querySelector('h4').textContent = siteContent["main-content"]["vision-h4"];
 divs[2].querySelector('p').textContent = siteContent["main-content"]["vision-content"];
 divs = undefined;
 
+//region contact 
 
-//region contact
 const contact = document.getElementsByClassName('contact')[0];
 contact.querySelector('h4').textContent = siteContent["contact"]["contact-h4"];
 const paragraphs = contact.querySelectorAll('p');
 const address = siteContent["contact"]["address"];
 let last_space = address.lastIndexOf(" ");
-last_space = address.lastIndexOf(" ", last_space-1);
+last_space = address.lastIndexOf(" ",last_space-1);
 const address_multiline = address.slice(0, last_space) + "<br/>" + address.slice(last_space+1);
 paragraphs[0].innerHTML = address_multiline;
 paragraphs[1].textContent = siteContent["contact"]["phone"];
@@ -113,7 +111,3 @@ paragraphs[2].textContent = siteContent["contact"]["email"];
 
 const footer = document.getElementsByTagName('footer')[0];
 footer.querySelector('p').textContent = siteContent["footer"]["copyright"];
-
-cta_h1.style.color = 'lightblue';
-document.querySelectorAll('h4').forEach((e) => e.style.color = 'red');
-cta_button.style.fontWeight = 'bold';

@@ -60,7 +60,7 @@ nav[0].appendChild(gallery);
 nav_links = nav[0].querySelectorAll('a');
 nav_links.forEach((a) => a.style.color = 'lightgrey');
 
-//cta
+//region cta
 
 const cta = document.getElementsByClassName('cta')[0];
 const cta_text = cta.getElementsByClassName('cta-text')[0];
@@ -72,7 +72,7 @@ cta_h1.innerHTML = siteContent["cta"]["h1"].split(' ').join('<br/> ');
 cta_button.textContent = siteContent["cta"]["button"];
 cta_image.setAttribute('src', siteContent["cta"]["img-src"]);
 
-//main content
+//region main-content
 
 const main_content = document.getElementsByClassName('main-content')[0];
 const top_content = main_content.querySelector('div.top-content');
