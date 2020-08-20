@@ -38,7 +38,6 @@ const siteContent = {
 };
 
 // Example: Update the img src for the logo
-
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
@@ -56,20 +55,6 @@ nav[3].textContent = ("src", siteContent["nav"]["nav-item-4"]);
 nav[4].textContent = ("src", siteContent["nav"]["nav-item-5"]);
 nav[5].textContent = ("src", siteContent["nav"]["nav-item-6"]);
 
-let firstA = document.createElement('a');
-firstA.textContent = 'Hope It Works';
-firstA.style.color = "green";
-document.querySelector('nav').prepend(firstA);
-
-let lastA = document.createElement('a');
-lastA.textContent = "Last Element";
-lastA.style.color = "green";
-document.querySelector('nav').appendChild(lastA);
-
-//color change on Navigation elements
-for (i = 0; i < nav.length ; i++) {
-  nav[i].style.color = 'green';
-}
 
 let ctah1 = document.querySelector("div.cta-text > h1")
 ctah1.textContent = ("src", siteContent["cta"]["h1"]);
@@ -77,28 +62,7 @@ ctah1.textContent = ("src", siteContent["cta"]["h1"]);
 let ctabutton = document.querySelector("div.cta-text > button")
 ctabutton.textContent = ("src", siteContent["cta"]["button"]);
 
-let h4 = document.querySelectorAll("div.text-content > h4");
-h4[0].textContent = ("src", siteContent["main-content"]["features-h4"]);
-h4[1].textContent = ("src", siteContent["main-content"]["about-h4"]);
-h4[2].textContent = ("src", siteContent["main-content"]["services-h4"]);
-h4[3].textContent = ("src", siteContent["main-content"]["product-h4"]);
-h4[4].textContent = ("src", siteContent["main-content"]["vision-h4"]);
-
-let mainP = document.querySelectorAll("div.text-content > p");
-mainP[0].textContent = ("src", siteContent["main-content"]["features-content"]);
-mainP[1].textContent = ("src", siteContent["main-content"]["about-content"]);
-mainP[2].textContent = ("src", siteContent["main-content"]["services-content"]);
-mainP[3].textContent = ("src", siteContent["main-content"]["product-content"]);
-mainP[4].textContent = ("src", siteContent["main-content"]["vision-content"]);
 
 
-let contacth4 = document.querySelector("section.contact > h4");
-contacth4.textContent = ("src", siteContent["contact"]["contact-h4"]);
-
-let contactP = document.querySelectorAll('section.contact > p');
-contactP[0].textContent = ("src", siteContent["contact"]["address"]);
-contactP[1].textContent = ("src", siteContent["contact"]["phone"]);
-contactP[2].textContent = ("src", siteContent["contact"]["email"]);
-
-let footer = document.querySelector("footer > p");
-footer.textContent = ('src', siteContent["footer"]["copyright"]);
+// let contact = document.getElementsByTagName("footer").quer;
+// contact.setAttribute('src', siteContent["footer"]["copyright"]);
